@@ -1,0 +1,177 @@
+import re
+import json
+from io import StringIO
+from numpy import random
+from collections import OrderedDict
+
+
+class LanguageModel:
+    def __init__(self, fileN=None):
+        if fileN:
+            #Open file in param (fileN)
+            #Read file and put data into dataInFile
+            #Call the function parseFile
+            with open(fileN, encoding='utf8') as fileOpened:
+                dataInFile = fileOpened.read()
+            dataParsed = self.parseFile(dataInFile)
+
+            #Call function to calculate probability
+            self.probaTable = self.probaDataParsed(dataParsed)
+        else:
+            self.probaTable = {}
+
+    def parseFile(self, dataInFile):
+
+        #Replace all characters with lowercase letters
+        dataInFile = dataInFile.lower()
+        #Regex to keep only 26 alphabetic letters
+        dataInFile = re.sub('[^a-z ]', "", dataInFile)
+        #Replace spaces and no ascii by '__'
+        dataInFile = dataInFile.replace(" ", "__")
+        dataInFile = dataInFile.replace('$', "__")
+        dataInFile = dataInFile.replace('^', "__")
+        dataInFile = dataInFile.replace('__+', "__")
+        #Return the modified data
+        return dataInFile
+
+    def probaDataParsed(self, dataInFile):
+
+        probaTable = {}
+        dicoBigram = {}
+        dicoTrigram = {}
+
+        for index in range(len(dataInFile) - 3 + 1):
+            #First trigram with first 3 symbols
+            trigram = dataInFile[index:index + 3]
+            #First bigram with first 2 symbols
+            bigram = dataInFile[index:index + 2]
+            #If trigram don't exist in my trigram's dictonnary
+            #the trigram takes 1
+            #Else I'll do +1
+            if trigram not in dicoTrigram:
+                dicoTrigram[trigram] = 1
+            else:
+                dicoTrigram[trigram] += 1
+            if bigram not in dicoBigram:
+                dicoBigram[bigram] = 1
+            else:
+                dicoBigram[bigram] += 1
+        #Calculate the proba with the formula P(w-2, w-1, w) / P(w-1,w)
+        for bigram in dicoBigram:
+            dico = {}
+            for trigram in dicoTrigram:
+                if trigram[0] + trigram[1] == bigram:
+                    dico[trigram[2]] = dicoTrigram[trigram] / float(dicoBigram[bigram])
+            probaTable[bigram] = dico
+        return probaTable
+
+    #This function writes probability table into a file
+    #It writes in another file the probability for trigrams iza,ize...
+    def probaInFileView(self, newFile, izFile):
+        proTableOrdered = OrderedDict(sorted(self.probaTable.items()))
+        out = open(newFile, 'w+')
+        outIz = open(izFile, 'w+')
+        for item in proTableOrdered:
+            out.write("%s %s  \n" % (item, proTableOrdered[item]))
+            if item[0] == 'i' and item[1] == 'z':
+                outIz.write("%s %s  \n" % (item, proTableOrdered[item]))
+
+    #This function writes probability table into a file using json
+    def probaInFileJson(self, fileIn):
+        s = OrderedDict(sorted(self.probaTable.items()))
+        with open(fileIn, 'w') as newFile:
+            json.dump(s, newFile)
+
+    #This function reads probability table from a file using json
+    def probaFromFileJson(self, fileIn):
+        with open(fileIn, 'r') as fileOpened:
+            self.probaTable = json.load(fileOpened)
+
+
+    #This function takes bigrams in params and return a random char
+    #using probabilites
+    def randomInProbaTable(self, bigram):
+        var = 0
+        inBigramProba = self.probaTable[bigram]
+        randomly = random.uniform(0, 1)
+        for char, proba in inBigramProba.items():
+            if var + proba >= randomly:
+                return char
+            var += proba
+        assert False, "Error here !"
+
+    #This function generates a random text
+    #using the function randomInProbaTable to take a random letter
+    def generateRandomData(self, rank):
+        data = '__'
+        for i in range(2, rank):
+            bigram = data[i - 2] + data[i - 1]
+            randomOne = self.randomInProbaTable(bigram)
+            data += randomOne
+        data = data.replace('__', ' ')
+        data = data.replace('^__', '',)
+        data = data.replace('_+$', '')
+        data = data.replace('_','')
+        print(data)
+
+    #This function computes the perplexity
+    def perplexityFromData(self, data):
+        buffer = StringIO(data)
+        perplexiteTable = []
+        for oneLine in buffer:
+            oneLine = oneLine[3:]
+            oneLine = self.parseFile(oneLine)
+            thePerplexity = 1
+            lineSize = len(oneLine)
+            for index in range(2, lineSize):
+                bigram = oneLine[index - 2] + oneLine[index - 1]
+                thePerplexity *= pow((1 / self.probaTable[bigram][oneLine[index]]), 1 / float(lineSize - 2))
+            perplexiteTable.append(thePerplexity)
+
+        tableSize = len(perplexiteTable)
+        for index in range(tableSize):
+            print('Sentence '+ str(index + 1) + ' : ' + str(perplexiteTable[index]))
+
+if __name__ == "__main__":
+    fileTest = "test"
+    with open(fileTest, encoding='utf8') as fileOpened:
+        dataInFileTest = fileOpened.read()
+
+    print("------------------------------------------------")
+    print("TRAINING.US")
+    print("------------------------------------------------")
+    filen = "training.US"
+    #-----CREATE LM-----
+    LM = LanguageModel(filen)
+    LM.probaInFileView("probaFile-"+filen, "izProbaFile"+filen)
+    #-----RANDOM TEXT-----
+    LM.generateRandomData(200)
+    #-----PERPLEX-----
+    LM.probaInFileJson("probaJson"+filen)
+    LM.perplexityFromData(dataInFileTest)
+
+    print("------------------------------------------------")
+    print("TRAINING.AU")
+    print("------------------------------------------------")
+    filen = "training.AU"
+    #-----CREATE LM-----
+    LM = LanguageModel(filen)
+    LM.probaInFileView("probaFile-"+filen, "izProbaFile"+filen)
+    #-----RANDOM TEXT-----
+    LM.generateRandomData(200)
+    #-----PERPLEX------
+    LM.probaInFileJson("probaJson"+filen)
+    LM.perplexityFromData(dataInFileTest)
+
+    print("------------------------------------------------")
+    print("TRAINING.GB")
+    print("------------------------------------------------")
+    filen = "training.GB"
+    #-----CREATE LM-----
+    LM = LanguageModel(filen)
+    LM.probaInFileView("probaFile-"+filen, "izProbaFile"+filen)
+    #-----RANDOM TEXT-----
+    LM.generateRandomData(200)
+    #-----PERPLEX------
+    LM.probaInFileJson("probaJson"+filen)
+    LM.perplexityFromData(dataInFileTest)

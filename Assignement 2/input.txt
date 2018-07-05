@@ -1,0 +1,28 @@
+1	I		I		PRON
+2	gave	give	VERB 				
+3	an		an		DET					
+4	apple	apple	NOUN				
+5	to		to		ADP					
+6	the		the 	DET					
+7	teacher teacher	NOUN
+
+1	Mary	Mary	PROPN
+2	missed	miss	VERB
+3	her		her		PRON
+4	train	train	NOUN
+5	to 		to		ADP
+6	work	work	VERB
+
+1	John	John	PROPN
+2	gave	give	VERB
+3	the		the		DET
+4	teacher	teacher	NOUN
+5	a		a		DET
+6	very	very	ADV
+7	heavy	heavy	ADJ
+8	book	book	NOUN
+
+1	The		The		DET
+2	sun		sun		NOUN
+3	shines	shine	VERB
+

@@ -1,0 +1,78 @@
+﻿# sent_id = 1
+# text = I gave an apple to the teacher
+1	I		I		PRON	_	_	2	nsubj	_	_
+2	gave	give	VERB	_	_	0	root	_	_
+3	an		an		DET		_	_	4	det		_	_
+4	apple	apple	NOUN	_	_	2	obj		_	_
+5	to		to		ADP		_	_	7	case	_	_
+6	the		the		ET		_	_	7	det		_	_
+7	teacher	teacher	NOUN	_	_	2	iobj	_	_
+
+# sent_id = 2
+# text = Mary missed her train to work
+1	Mary	Mary	PROPN	_	_	2	nsubj	_	_
+2	missed	miss	VERB	_	_	0	root	_	_
+3	her		her		DET		_	_	4	det		_	_
+4	train	train	NOUN	_	_	2	obj		_	_
+5	to		to		ADP		_	_	6	case	_	_
+6	work	work	VERB	_	_	4	nmod	_	_
+
+# sent_id = 3
+# text = John gave the teacher a very heavy look
+1	John	John	PROPN	_	_	2	nsubj	_	_
+2	gave	give	VERB	_	_	0	root	_	_
+3	the		the		DET		_	_	4	det		_	_
+4	teacher	teacher	NOUN	_	_	2	iobj	_	_
+5	a		a		DET		_	_	8	det		_	_
+6	very	very	ADV		_	_	7	advmod	_	_
+7	heavy	heavy	ADJ		_	_	8	amod	_	_
+8	look	look	NOUN	_	_	2	obj		_	_
+
+# sent_id = 4
+# text = The sun shines
+1	The		the		DET		_	_	2	det		_	_
+2	sun		sun		NOUN	_	_	3	nsubj	_	_
+3	shines	shine	VERB	_	_	0	root	_	_
+
+# sent_id = 5
+# text = This is the dog that chased the cat
+1	This	this	PRON	_	_	4	nsubj		_	_
+2	is		be		AUX		_	_	4	cop			_	_
+3	the		the		DET		_	_	4	det			_	_
+4	dog		dog		NOUN	_	_	0	root		_	_
+5	that	that	PRON	_	_	6	nsubj		_	_
+6	chased	chase	VERB	_	_	4	acl:relcl	_	_
+7	the		the		DET		_	_	8	det			_	_
+8	cat		cat		NOUN	_	_	6	obj			_	_
+
+# sent_id = 6
+# text = I saw the doctor this morning who is treating me
+1	I			I		PRON	_	_	2	nsubj		_	_
+2	saw			see		VERB	_	_	0	root		_	_
+3	the			the		DET		_	_	4	det			_	_
+4	doctor		doctor	NOUN	_	_	2	obj			_	_
+5	this		this	DET		_	_	6	det			_	_
+6	morning		morning	NOUN	_	_	2	advmod		_	_
+7	who			who		PRON	_	_	9	nsubj		_	_
+8	is			be		AUX		_	_	9	aux			_	_
+9	treating	treat	VERB	_	_	4	acl:relcl	_	_
+10	me			me		PRON	_	_	9	obj			_	_
+
+# sent_id = 7
+# text = This is the cat that the dog chased
+1	This	this	PRON	_	_	4	nsubj		_	_
+2	is		be		AUX		_	_	4	cop			_	_
+3	the		the		DET		_	_	4	det			_	_
+4	cat		cat		NOUN	_	_	0	root		_	_
+5	that	that	SCONJ	_	_	8	obj			_	_
+6	the		the		DET		_	_	7	det			_	_
+7	dog		dog		NOUN	_	_	8	nsubj		_	_
+8	chased	chase	VERB	_	_	4	acl:relcl	_	_
+
+# sent_id = 8
+# text = John is eager to please
+1	John	John	PROPN	_	_	3	nsubj	_	_
+2	is		be		VERB	_	_	3	cop		_	_
+3	eager	eager	ADJ		_	_	0	root	_	_
+4	to		to		ADP		_	_	5	mark	_	_
+5	please	please	VERB	_	_	3	xcomp	_	_

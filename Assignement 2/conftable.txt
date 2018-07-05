@@ -1,0 +1,64 @@
+<sentence file='input.txt' id='1' text=' I gave an apple to the teacher'>
+0->['ROOT']->['I', 'gave', 'an', 'apple', 'to', 'the', 'teacher']->SHIFT 
+1->['ROOT', 'I']->['gave', 'an', 'apple', 'to', 'the', 'teacher']->SHIFT 
+2->['ROOT', 'I', 'gave']->['an', 'apple', 'to', 'the', 'teacher']->LEFTARC->(I<-gave)
+3->['ROOT', 'gave']->['an', 'apple', 'to', 'the', 'teacher']->SHIFT 
+4->['ROOT', 'gave', 'an']->['apple', 'to', 'the', 'teacher']->SHIFT 
+5->['ROOT', 'gave', 'an', 'apple']->['to', 'the', 'teacher']->LEFTARC->(an<-apple)
+6->['ROOT', 'gave', 'apple']->['to', 'the', 'teacher']->RIGHTARC->(gave->apple)
+7->['ROOT', 'gave']->['to', 'the', 'teacher']->SHIFT 
+8->['ROOT', 'gave', 'to']->['the', 'teacher']->SHIFT 
+9->['ROOT', 'gave', 'to', 'the']->['teacher']->SHIFT 
+10->['ROOT', 'gave', 'to', 'the', 'teacher']->[]->LEFTARC->(the<-teacher)
+11->['ROOT', 'gave', 'to', 'teacher']->[]->LEFTARC->(to<-teacher)
+12->['ROOT', 'gave', 'teacher']->[]->RIGHTARC->(gave->teacher)
+13->['ROOT', 'gave']->[]->RIGHTARC->(ROOT->gave)
+14->['ROOT']->[]->Done
+</sentence>
+
+<sentence file='input.txt' id='2' text=' Mary missed her train to work'>
+0->['ROOT']->['Mary', 'missed', 'her', 'train', 'to', 'work']->SHIFT 
+1->['ROOT', 'Mary']->['missed', 'her', 'train', 'to', 'work']->SHIFT 
+2->['ROOT', 'Mary', 'missed']->['her', 'train', 'to', 'work']->LEFTARC->(Mary<-missed)
+3->['ROOT', 'missed']->['her', 'train', 'to', 'work']->SHIFT 
+4->['ROOT', 'missed', 'her']->['train', 'to', 'work']->SHIFT 
+5->['ROOT', 'missed', 'her', 'train']->['to', 'work']->LEFTARC->(her<-train)
+6->['ROOT', 'missed', 'train']->['to', 'work']->RIGHTARC->(missed->train)
+7->['ROOT', 'missed']->['to', 'work']->SHIFT 
+8->['ROOT', 'missed', 'to']->['work']->SHIFT 
+9->['ROOT', 'missed', 'to', 'work']->[]->LEFTARC->(to<-work)
+10->['ROOT', 'missed', 'work']->[]->LEFTARC->(missed<-work)
+11->['ROOT', 'work']->[]->RIGHTARC->(ROOT->work)
+12->['ROOT']->[]->Done
+</sentence>
+
+<sentence file='input.txt' id='3' text=' John gave the teacher a very heavy book'>
+0->['ROOT']->['John', 'gave', 'the', 'teacher', 'a', 'very', 'heavy', 'book']->SHIFT 
+1->['ROOT', 'John']->['gave', 'the', 'teacher', 'a', 'very', 'heavy', 'book']->SHIFT 
+2->['ROOT', 'John', 'gave']->['the', 'teacher', 'a', 'very', 'heavy', 'book']->LEFTARC->(John<-gave)
+3->['ROOT', 'gave']->['the', 'teacher', 'a', 'very', 'heavy', 'book']->SHIFT 
+4->['ROOT', 'gave', 'the']->['teacher', 'a', 'very', 'heavy', 'book']->SHIFT 
+5->['ROOT', 'gave', 'the', 'teacher']->['a', 'very', 'heavy', 'book']->LEFTARC->(the<-teacher)
+6->['ROOT', 'gave', 'teacher']->['a', 'very', 'heavy', 'book']->RIGHTARC->(gave->teacher)
+7->['ROOT', 'gave']->['a', 'very', 'heavy', 'book']->SHIFT 
+8->['ROOT', 'gave', 'a']->['very', 'heavy', 'book']->SHIFT 
+9->['ROOT', 'gave', 'a', 'very']->['heavy', 'book']->SHIFT 
+10->['ROOT', 'gave', 'a', 'very', 'heavy']->['book']->LEFTARC->(very<-heavy)
+11->['ROOT', 'gave', 'a', 'heavy']->['book']->SHIFT 
+12->['ROOT', 'gave', 'a', 'heavy', 'book']->[]->LEFTARC->(heavy<-book)
+13->['ROOT', 'gave', 'a', 'book']->[]->LEFTARC->(a<-book)
+14->['ROOT', 'gave', 'book']->[]->RIGHTARC->(gave->book)
+15->['ROOT', 'gave']->[]->RIGHTARC->(ROOT->gave)
+16->['ROOT']->[]->Done
+</sentence>
+
+<sentence file='input.txt' id='4' text=' The sun shines'>
+0->['ROOT']->['The', 'sun', 'shines']->SHIFT 
+1->['ROOT', 'The']->['sun', 'shines']->SHIFT 
+2->['ROOT', 'The', 'sun']->['shines']->LEFTARC->(The<-sun)
+3->['ROOT', 'sun']->['shines']->SHIFT 
+4->['ROOT', 'sun', 'shines']->[]->LEFTARC->(sun<-shines)
+5->['ROOT', 'shines']->[]->RIGHTARC->(ROOT->shines)
+6->['ROOT']->[]->Done
+</sentence>
+

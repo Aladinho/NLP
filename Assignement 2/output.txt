@@ -1,0 +1,72 @@
+|   ID  | FORM    | LEMMA    | UPOSTAG    |   HEAD  | DEPREL    |
+|-------+---------+----------+------------+---------+-----------|
+|     1 | I       | I        | PRON       |       2 | DEP       |
+|     2 | gave    | give     | VERB       |       0 | DEP       |
+|     3 | an      | an       | DET        |       4 | DEP       |
+|     4 | apple   | apple    | NOUN       |       2 | DEP       |
+|     5 | to      | to       | ADP        |       7 | DEP       |
+|     6 | the     | the      | DET        |       7 | DEP       |
+|     7 | teacher | teacher  | NOUN       |       2 | DEP       |
+ --------------------------------------------------------------- 
+|   ID  | FORM    | LEMMA    | UPOSTAG    |   HEAD  | DEPREL    |
+|-------+---------+----------+------------+---------+-----------|
+|     1 | Mary    | Mary     | PROPN      |       2 | DEP       |
+|     2 | missed  | miss     | VERB       |       6 | DEP       |
+|     3 | her     | her      | PRON       |       4 | DEP       |
+|     4 | train   | train    | NOUN       |       2 | DEP       |
+|     5 | to      | to       | ADP        |       6 | DEP       |
+|     6 | work    | work     | VERB       |       0 | DEP       |
+ --------------------------------------------------------------- 
+|   ID  | FORM    | LEMMA    | UPOSTAG    |   HEAD  | DEPREL    |
+|-------+---------+----------+------------+---------+-----------|
+|     1 | John    | John     | PROPN      |       2 | DEP       |
+|     2 | gave    | give     | VERB       |       0 | DEP       |
+|     3 | the     | the      | DET        |       4 | DEP       |
+|     4 | teacher | teacher  | NOUN       |       2 | DEP       |
+|     5 | a       | a        | DET        |       8 | DEP       |
+|     6 | very    | very     | ADV        |       7 | DEP       |
+|     7 | heavy   | heavy    | ADJ        |       8 | DEP       |
+|     8 | book    | book     | NOUN       |       2 | DEP       |
+ --------------------------------------------------------------- 
+|   ID  | FORM    | LEMMA    | UPOSTAG    |   HEAD  | DEPREL    |
+|-------+---------+----------+------------+---------+-----------|
+|     1 | The     | The      | DET        |       2 | DEP       |
+|     2 | sun     | sun      | NOUN       |       3 | DEP       |
+|     3 | shines  | shine    | VERB       |       0 | DEP       |
+ --------------------------------------------------------------- 
+|   ID  | FORM    | LEMMA    | UPOSTAG    |   HEAD  | DEPREL    |
+|-------+---------+----------+------------+---------+-----------|
+|     1 | I       | I        | PRON       |       2 | DEP       |
+|     2 | gave    | give     | VERB       |       0 | DEP       |
+|     3 | an      | an       | DET        |       4 | DEP       |
+|     4 | apple   | apple    | NOUN       |       2 | DEP       |
+|     5 | to      | to       | ADP        |       7 | DEP       |
+|     6 | the     | the      | DET        |       7 | DEP       |
+|     7 | teacher | teacher  | NOUN       |       2 | DEP       |
+ --------------------------------------------------------------- 
+|   ID  | FORM    | LEMMA    | UPOSTAG    |   HEAD  | DEPREL    |
+|-------+---------+----------+------------+---------+-----------|
+|     1 | Mary    | Mary     | PROPN      |       2 | DEP       |
+|     2 | missed  | miss     | VERB       |       6 | DEP       |
+|     3 | her     | her      | PRON       |       4 | DEP       |
+|     4 | train   | train    | NOUN       |       2 | DEP       |
+|     5 | to      | to       | ADP        |       6 | DEP       |
+|     6 | work    | work     | VERB       |       0 | DEP       |
+ --------------------------------------------------------------- 
+|   ID  | FORM    | LEMMA    | UPOSTAG    |   HEAD  | DEPREL    |
+|-------+---------+----------+------------+---------+-----------|
+|     1 | John    | John     | PROPN      |       2 | DEP       |
+|     2 | gave    | give     | VERB       |       0 | DEP       |
+|     3 | the     | the      | DET        |       4 | DEP       |
+|     4 | teacher | teacher  | NOUN       |       2 | DEP       |
+|     5 | a       | a        | DET        |       8 | DEP       |
+|     6 | very    | very     | ADV        |       7 | DEP       |
+|     7 | heavy   | heavy    | ADJ        |       8 | DEP       |
+|     8 | book    | book     | NOUN       |       2 | DEP       |
+ --------------------------------------------------------------- 
+|   ID  | FORM    | LEMMA    | UPOSTAG    |   HEAD  | DEPREL    |
+|-------+---------+----------+------------+---------+-----------|
+|     1 | The     | The      | DET        |       2 | DEP       |
+|     2 | sun     | sun      | NOUN       |       3 | DEP       |
+|     3 | shines  | shine    | VERB       |       0 | DEP       |
+ --------------------------------------------------------------- 
